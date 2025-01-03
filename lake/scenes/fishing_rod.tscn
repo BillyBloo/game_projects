@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfhr8ojy1lmg5"]
+
+[ext_resource type="Texture2D" uid="uid://cunsou53idwho" path="res://icon.svg" id="1_d5iky"]
+[ext_resource type="Script" path="res://scenes/fishing_rod.gd" id="1_mit4x"]
+
+[node name="fishing_rod" type="Node2D"]
+script = ExtResource("1_mit4x")
+
+[node name="rod" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.46, 0.1)
+texture = ExtResource("1_d5iky")
+offset = Vector2(90, 0)

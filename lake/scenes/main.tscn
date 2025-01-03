@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://gyarkcxkm57u"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_sh8nh"]
+[ext_resource type="Shader" path="res://scenes/water.gdshader" id="2_jenvi"]
+[ext_resource type="Texture2D" uid="uid://cunsou53idwho" path="res://icon.svg" id="3_k2yyh"]
+[ext_resource type="PackedScene" uid="uid://bag2n0jsl1tj6" path="res://scenes/player.tscn" id="4_omdqd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0fxy"]
+shader = ExtResource("2_jenvi")
+
+[node name="main" type="Node"]
+script = ExtResource("1_sh8nh")
+
+[node name="cam" type="Camera2D" parent="."]
+
+[node name="lake_outline" type="Line2D" parent="."]
+points = PackedVector2Array(58, 310, 241, 375, 183, 80)
+closed = true
+width = 5.0
+default_color = Color(1, 1, 1, 0.478431)
+
+[node name="lake_polygon" type="Polygon2D" parent="."]
+color = Color(0.05, 0.05, 0.05, 1)
+invert_enabled = true
+invert_border = 1000.0
+polygon = PackedVector2Array(278, 268, 466, 24, 841, 277, 528, 374, 404, 357)
+
+[node name="path" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(58, 310, 241, 375, 183, 80)
+closed = true
+width = 5.0
+default_color = Color(1, 1, 1, 0.478431)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_u0fxy")
+offset_right = 960.0
+offset_bottom = 960.0
+texture = ExtResource("3_k2yyh")
+
+[node name="player" parent="." instance=ExtResource("4_omdqd")]
+position = Vector2(612, 274)
