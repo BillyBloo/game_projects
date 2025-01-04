@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://og3r8tqqlr5d"]
+
+[ext_resource type="PackedScene" uid="uid://cyxbj47ywb21a" path="res://scenes/actors/Actor.tscn" id="1_intwm"]
+[ext_resource type="Script" path="res://scenes/actors/melee.gd" id="2_gkt2s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5lrr"]
+radius = 40.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g72vt"]
+color = Color(0.27, 0, 0.18, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_csifi"]
+color = Color(1, 0.05, 0.43, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 4
+
+[node name="melee" instance=ExtResource("1_intwm")]
+collision_mask = 0
+script = ExtResource("2_gkt2s")
+type = 1
+
+[node name="melee_area" type="Area2D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melee_area" index="0"]
+visible = false
+shape = SubResource("CircleShape2D_s5lrr")
+
+[node name="hp_bar" type="ProgressBar" parent="." index="3"]
+visible = false
+z_index = 5
+offset_left = -12.0
+offset_top = -22.0
+offset_right = 12.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxLine_g72vt")
+theme_override_styles/fill = SubResource("StyleBoxLine_csifi")
+value = 50.0
+show_percentage = false

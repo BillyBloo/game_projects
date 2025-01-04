@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1735849487
+icon.svg::CompressedTexture2D::6204574156028253292::1735658440::1735658451::1::::<><>::
+::res://code/::1735845457
+global.gd::GDScript::-1::1735845457::0::1::::<>Node<>::
+::res://scenes/::1735846644
+fishing_rod.gd::GDScript::-1::1735845986::0::1::::<>Node2D<>::
+fishing_rod.tscn::PackedScene::2752907416593355986::1735846573::0::1::::<><>::uid://cunsou53idwho::::res://icon.svg<>res://scenes/fishing_rod.gd
+lake.gdshader::Shader::-1::1735846644::0::1::::<><>::
+main.gd::GDScript::-1::1735846241::0::1::::<>Node<>::
+main.tscn::PackedScene::470709015804007980::1735846639::0::1::::<><>::res://scenes/main.gd<>res://scenes/water.gdshader<>uid://cunsou53idwho::::res://icon.svg<>uid://bag2n0jsl1tj6::::res://scenes/player.tscn
+player.gd::GDScript::-1::1735846573::0::1::::<>Node2D<>::
+player.tscn::PackedScene::2400470852163492765::1735846573::0::1::::<><>::res://scenes/player.gd<>uid://cunsou53idwho::::res://icon.svg
+water.gdshader::Shader::-1::1735846644::0::1::::<><>::

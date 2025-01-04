@@ -1,0 +1,7 @@
+res://scenes/main.tscn
+res://scenes/water.gdshader
+res://scenes/lake.gdshader
+res://scenes/player.tscn
+res://scenes/fishing_rod.tscn
+res://scenes/main.gd
+res://code/global.gd

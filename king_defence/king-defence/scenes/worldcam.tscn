@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://q2sfrg7uf6wm"]
+
+[ext_resource type="Script" path="res://scenes/worldcam.gd" id="1_ebfvq"]
+
+[node name="worldcam" type="Camera2D"]
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("1_ebfvq")
