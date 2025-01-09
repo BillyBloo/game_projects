@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://c1x8uthlygyvq" path="res://icon.svg" id="1_rrq8l"]
 
 [node name="Icon" type="Sprite2D"]
-modulate = Color(1, 1, 1, 0.099)
+modulate = Color(1, 1, 1, 0.639216)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_rrq8l")

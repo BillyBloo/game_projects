@@ -9,7 +9,7 @@ var unchecked = {}
 func add(cell, dir):
 	map[cell] = dir
 	var from_cell = cell + dir
-	var from_dist = best_dists[from_cell] if best_dists.has(from_cell) else 0
+	#var from_dist = best_dists[from_cell] if best_dists.has(from_cell) else 0
 	if best_dists.has(from_cell):
 		best_dists[cell] = best_dists[from_cell] + dir.length()
 	else:

@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://dywk8r4dytq77"]
+
+[ext_resource type="Script" path="res://code/units.gd" id="1_a5jxr"]
+[ext_resource type="Script" path="res://code/ui.gd" id="1_m66kk"]
+[ext_resource type="Script" path="res://code/menu_option.gd" id="2_dn73d"]
+[ext_resource type="FontFile" uid="uid://dd74ml8uwtwdv" path="res://art/alagard.ttf" id="2_qe5mg"]
+[ext_resource type="Script" path="res://code/upgrade_selector.gd" id="5_tsr70"]
+
+[sub_resource type="FontVariation" id="FontVariation_rkvml"]
+base_font = ExtResource("2_qe5mg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ut72o"]
+size = Vector2(58, 24)
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_m66kk")
+
+[node name="units" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_a5jxr")
+
+[node name="start" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_dn73d")
+state = "place_units"
+
+[node name="Label" type="Label" parent="start"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -48.0
+offset_top = -38.0
+offset_right = 48.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_rkvml")
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start" type="TouchScreenButton" parent="start"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_ut72o")
+action = "start"
+
+[node name="play" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_dn73d")
+state = "menu"
+
+[node name="Label" type="Label" parent="play"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -48.0
+offset_top = -17.0
+offset_right = 48.0
+offset_bottom = 21.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_rkvml")
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="play" type="TouchScreenButton" parent="play"]
+shape = SubResource("RectangleShape2D_ut72o")
+
+[node name="upgrade_selector" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_tsr70")
+
+[connection signal="pressed" from="play/play" to="." method="_on_play_pressed"]

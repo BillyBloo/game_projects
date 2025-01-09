@@ -1,0 +1,138 @@
+[gd_scene load_steps=23 format=3 uid="uid://c86yfccxa1d3f"]
+
+[ext_resource type="Script" path="res://scenes/chunk.gd" id="1_g8h84"]
+[ext_resource type="Texture2D" uid="uid://c1x8uthlygyvq" path="res://icon.svg" id="1_q6qwg"]
+[ext_resource type="Shader" path="res://code/grass.gdshader" id="1_qnkyg"]
+[ext_resource type="Shader" path="res://scenes/fog.gdshader" id="3_215gx"]
+[ext_resource type="Shader" path="res://scenes/fog_shadow.gdshader" id="4_ay6bn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5wehk"]
+frequency = 0.0105
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1fwpl"]
+width = 270
+height = 270
+seamless = true
+noise = SubResource("FastNoiseLite_5wehk")
+
+[sub_resource type="Gradient" id="Gradient_05bur"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.0755396, 0.417266, 0.521583, 0.697842, 1)
+colors = PackedColorArray(0.411765, 0.560784, 0.337255, 1, 0.494118, 0.603922, 0.376471, 1, 0.329412, 0.533333, 0.352941, 1, 0.411765, 0.560784, 0.337255, 1, 0.588235, 0.576471, 0.360784, 1, 0.54902, 0.427451, 0.345098, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bn53n"]
+gradient = SubResource("Gradient_05bur")
+width = 16384
+
+[sub_resource type="Gradient" id="Gradient_50idr"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.0359712)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_62bv8"]
+noise_type = 2
+seed = 4
+frequency = 0.0938
+fractal_octaves = 1
+fractal_gain = 0.455
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jwvoc"]
+width = 270
+height = 270
+seamless = true
+seamless_blend_skirt = 0.01
+color_ramp = SubResource("Gradient_50idr")
+noise = SubResource("FastNoiseLite_62bv8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2smux"]
+shader = ExtResource("1_qnkyg")
+shader_parameter/pix = 135.0
+shader_parameter/grass_noise = SubResource("NoiseTexture2D_jwvoc")
+shader_parameter/grass_col_noise = SubResource("NoiseTexture2D_1fwpl")
+shader_parameter/grass_grad = SubResource("GradientTexture1D_bn53n")
+
+[sub_resource type="Gradient" id="Gradient_nykl3"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0864198, 0.197531, 0.288066, 0.37037, 0.44856)
+colors = PackedColorArray(0.0585, 0.066375, 0.09, 0, 0.0585, 0.066375, 0.09, 0.25508, 0.0585, 0.066375, 0.09, 0.462923, 0.0585, 0.066375, 0.09, 0.651872, 0.0585, 0.066375, 0.09, 0.831373)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tv37d"]
+gradient = SubResource("Gradient_nykl3")
+width = 10000
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_meyww"]
+resource_local_to_scene = true
+shader = ExtResource("4_ay6bn")
+shader_parameter/tl = 1.0
+shader_parameter/tr = 1.0
+shader_parameter/bl = 1.0
+shader_parameter/br = 1.0
+shader_parameter/fog_grad = SubResource("GradientTexture1D_tv37d")
+
+[sub_resource type="Gradient" id="Gradient_n7d02"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.00598802, 0.101796, 0.323353, 0.616766)
+colors = PackedColorArray(0, 0, 0, 0, 0.68, 0.68, 0.68, 1, 0.77, 0.77, 0.77, 1, 0.89, 0.89, 0.89, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x5mkf"]
+gradient = SubResource("Gradient_n7d02")
+width = 16384
+
+[sub_resource type="Gradient" id="Gradient_r4dkn"]
+colors = PackedColorArray(0.14, 0.14, 0.14, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fynlb"]
+frequency = 0.0095
+offset = Vector3(105.4, 37.35, 0)
+fractal_type = 3
+fractal_gain = 0.63
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_niean"]
+width = 135
+height = 135
+seamless = true
+seamless_blend_skirt = 0.082
+color_ramp = SubResource("Gradient_r4dkn")
+noise = SubResource("FastNoiseLite_fynlb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ocj5"]
+resource_local_to_scene = true
+shader = ExtResource("3_215gx")
+shader_parameter/tl = 1.0
+shader_parameter/tr = 1.0
+shader_parameter/bl = 1.0
+shader_parameter/br = 1.0
+shader_parameter/pix = 135.0
+shader_parameter/fog_noise = SubResource("NoiseTexture2D_niean")
+shader_parameter/fog_grad = SubResource("GradientTexture1D_x5mkf")
+
+[node name="chunk" type="Node2D"]
+script = ExtResource("1_g8h84")
+
+[node name="grass" type="Sprite2D" parent="."]
+z_index = -1000
+texture_filter = 1
+material = SubResource("ShaderMaterial_2smux")
+position = Vector2(0, 16)
+scale = Vector2(2.10938, 2.10938)
+texture = ExtResource("1_q6qwg")
+centered = false
+
+[node name="fog_shadow" type="Sprite2D" parent="."]
+z_index = -999
+texture_filter = 1
+material = SubResource("ShaderMaterial_meyww")
+position = Vector2(0, 16)
+scale = Vector2(2.10938, 2.10938)
+texture = ExtResource("1_q6qwg")
+centered = false
+
+[node name="fog" type="Sprite2D" parent="."]
+z_index = 4096
+texture_filter = 1
+material = SubResource("ShaderMaterial_7ocj5")
+position = Vector2(0, -16)
+scale = Vector2(2.10938, 2.10938)
+texture = ExtResource("1_q6qwg")
+centered = false

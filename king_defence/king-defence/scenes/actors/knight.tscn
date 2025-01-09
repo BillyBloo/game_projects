@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://og3r8tqqlr5d"]
+
+[ext_resource type="PackedScene" uid="uid://cyxbj47ywb21a" path="res://scenes/actors/Actor.tscn" id="1_intwm"]
+[ext_resource type="Script" path="res://scenes/actors/can_attack.gd" id="2_gkt2s"]
+[ext_resource type="PackedScene" uid="uid://hemr5n4yv4nk" path="res://scenes/hp_anchor.tscn" id="3_vylhr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5lrr"]
+radius = 55.0
+
+[node name="melee" instance=ExtResource("1_intwm")]
+script = ExtResource("2_gkt2s")
+attack_interval = 45
+attack_dmg = 40
+attack_range = 1.0
+hp = 120
+unit_type = "knight"
+type = 1
+speed = 1.0
+
+[node name="melee_area" type="Area2D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melee_area" index="0"]
+shape = SubResource("CircleShape2D_s5lrr")
+
+[node name="hp_anchor" parent="." index="6" instance=ExtResource("3_vylhr")]

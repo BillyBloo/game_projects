@@ -1,20 +1,224 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyxbj47ywb21a"]
+[gd_scene load_steps=28 format=3 uid="uid://cyxbj47ywb21a"]
 
 [ext_resource type="Script" path="res://scenes/actors/actor.gd" id="1_rlbij"]
+[ext_resource type="Shader" path="res://scenes/actors/shadow.gdshader" id="2_b6ytf"]
 [ext_resource type="Texture2D" uid="uid://c1x8uthlygyvq" path="res://icon.svg" id="2_qkn75"]
+[ext_resource type="Shader" path="res://scenes/actors/outline.gdshader" id="3_ueupv"]
+[ext_resource type="Texture2D" uid="uid://dlvjuyveja7u1" path="res://art/monsters.png" id="4_nqxeg"]
+[ext_resource type="Texture2D" uid="uid://dmfh8v8swrfnv" path="res://art/rogues.png" id="5_v7t47"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvvd"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6bld5"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt81w"]
 size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3g772"]
+shader = ExtResource("2_b6ytf")
+shader_parameter/shadow_col = Color(0.0585, 0.066375, 0.09, 0.717647)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7cdo"]
+shader = ExtResource("3_ueupv")
+shader_parameter/pix = 512.0
+shader_parameter/outline_col = Color(0.0972, 0.1179, 0.18, 0.835294)
+shader_parameter/flash = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrbt0"]
+atlas = ExtResource("4_nqxeg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv2y5"]
+atlas = ExtResource("4_nqxeg")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbn0x"]
+atlas = ExtResource("4_nqxeg")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmiw7"]
+atlas = ExtResource("4_nqxeg")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg8n3"]
+atlas = ExtResource("4_nqxeg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m844q"]
+atlas = ExtResource("4_nqxeg")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwk7n"]
+atlas = ExtResource("5_v7t47")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1yij"]
+atlas = ExtResource("5_v7t47")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbqh8"]
+atlas = ExtResource("5_v7t47")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cvhh"]
+atlas = ExtResource("5_v7t47")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tieo3"]
+atlas = ExtResource("5_v7t47")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq81p"]
+atlas = ExtResource("5_v7t47")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvyej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrbt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv2y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbn0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmiw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg8n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m844q")
+}],
+"loop": true,
+"name": &"monsters",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwk7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1yij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbqh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cvhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tieo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq81p")
+}],
+"loop": true,
+"name": &"rouges",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_yqsmx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:material:shader_parameter/flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_xyqh6"]
+resource_name = "flash"
+
+[sub_resource type="Animation" id="Animation_ya1eh"]
+resource_name = "hop"
+length = 0.25
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(1, -16), Vector2(1, -20), Vector2(1, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:material:shader_parameter/flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bf1bq"]
+_data = {
+"RESET": SubResource("Animation_yqsmx"),
+"flash": SubResource("Animation_xyqh6"),
+"hop": SubResource("Animation_ya1eh")
+}
 
 [node name="Actor" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 7
 script = ExtResource("1_rlbij")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-7.15256e-07, 7.15256e-07)
-scale = Vector2(0.25, 0.25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6bld5")
+
+[node name="selector" type="TouchScreenButton" parent="."]
+z_index = 10
+shape = SubResource("RectangleShape2D_xt81w")
+
+[node name="shadow" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_3g772")
+position = Vector2(-0.999999, 6)
+scale = Vector2(0.234375, 0.125)
 texture = ExtResource("2_qkn75")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1bvvd")
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_h7cdo")
+position = Vector2(0, 10)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vvyej")
+animation = &"rouges"
+offset = Vector2(1, -16)
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bf1bq")
+}
+
+[connection signal="pressed" from="selector" to="." method="_on_selector_pressed"]
+[connection signal="released" from="selector" to="." method="_on_selector_released"]

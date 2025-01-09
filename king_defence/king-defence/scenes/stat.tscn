@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://by6qmq0n57rlq"]
+
+[ext_resource type="Script" path="res://scenes/stat.gd" id="1_br3j0"]
+[ext_resource type="Shader" path="res://scenes/actors/outline.gdshader" id="2_oraq0"]
+[ext_resource type="Texture2D" uid="uid://dmfh8v8swrfnv" path="res://art/rogues.png" id="4_eqtkt"]
+[ext_resource type="FontFile" uid="uid://dd74ml8uwtwdv" path="res://art/alagard.ttf" id="4_gdcxq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_213vv"]
+shader = ExtResource("2_oraq0")
+shader_parameter/pix = 512.0
+shader_parameter/outline_col = Color(0.0603, 0.06624, 0.09, 0.87451)
+shader_parameter/flash = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut6rf"]
+atlas = ExtResource("4_eqtkt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t68a0"]
+atlas = ExtResource("4_eqtkt")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku3rw"]
+atlas = ExtResource("4_eqtkt")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l08m"]
+atlas = ExtResource("4_eqtkt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7o0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut6rf")
+}],
+"loop": true,
+"name": &"archer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t68a0")
+}],
+"loop": true,
+"name": &"barbarian",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku3rw")
+}],
+"loop": true,
+"name": &"king",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l08m")
+}],
+"loop": true,
+"name": &"knight",
+"speed": 5.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_aso8h"]
+base_font = ExtResource("4_gdcxq")
+
+[sub_resource type="FontVariation" id="FontVariation_6q21p"]
+base_font = ExtResource("4_gdcxq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoifn"]
+size = Vector2(96, 32)
+
+[node name="stat" type="Node2D"]
+script = ExtResource("1_br3j0")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_213vv")
+position = Vector2(15, 16)
+sprite_frames = SubResource("SpriteFrames_s7o0x")
+animation = &"barbarian"
+flip_h = true
+
+[node name="name" type="Label" parent="."]
+texture_filter = 1
+offset_left = 30.0
+offset_right = 176.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_aso8h")
+text = "aaaaaaaaaa"
+
+[node name="num" type="Label" parent="."]
+texture_filter = 1
+offset_left = 30.0
+offset_right = 63.0
+offset_bottom = 34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_6q21p")
+text = "0"
+vertical_alignment = 2
+
+[node name="but" type="TouchScreenButton" parent="."]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_uoifn")
+passby_press = true
+
+[connection signal="pressed" from="but" to="." method="_on_but_pressed"]

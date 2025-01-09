@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://hemr5n4yv4nk"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g72vt"]
+color = Color(0.054, 0.27, 0, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_csifi"]
+color = Color(0.176667, 1, 0.05, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 4
+
+[node name="hp_anchor" type="Node2D"]
+
+[node name="hp_bar" type="ProgressBar" parent="."]
+z_index = 5
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -56.0
+theme_override_styles/background = SubResource("StyleBoxLine_g72vt")
+theme_override_styles/fill = SubResource("StyleBoxLine_csifi")
+value = 50.0
+show_percentage = false

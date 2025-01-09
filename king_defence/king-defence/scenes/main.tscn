@@ -1,433 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://5s3tt51j181w"]
+[gd_scene load_steps=10 format=3 uid="uid://b5adtpngs1uo"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_xh4av"]
-[ext_resource type="PackedScene" uid="uid://og3r8tqqlr5d" path="res://scenes/actors/melee.tscn" id="3_i3va1"]
-[ext_resource type="PackedScene" uid="uid://q2sfrg7uf6wm" path="res://scenes/worldcam.tscn" id="3_twhvs"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_nj3w5"]
+[ext_resource type="Script" path="res://code/chunks.gd" id="2_54tqr"]
+[ext_resource type="Script" path="res://scenes/unit_placer.gd" id="2_bfmgj"]
+[ext_resource type="PackedScene" uid="uid://q2sfrg7uf6wm" path="res://scenes/worldcam.tscn" id="3_a57ed"]
+[ext_resource type="PackedScene" uid="uid://dywk8r4dytq77" path="res://scenes/ui.tscn" id="4_4mwh2"]
+[ext_resource type="Script" path="res://code/grid.gd" id="5_jrx4l"]
+[ext_resource type="Texture2D" uid="uid://u4fivpw4kmyw" path="res://art/sq.png" id="6_h33mj"]
+[ext_resource type="PackedScene" uid="uid://diesdiongsh7k" path="res://scenes/actors/king.tscn" id="9_6mo8q"]
 
-[node name="main" type="Node"]
-script = ExtResource("1_xh4av")
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_diyb1"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_nj3w5")
+
+[node name="unit_placer" type="Node2D" parent="."]
+script = ExtResource("2_bfmgj")
 
 [node name="Node" type="Node" parent="."]
 
-[node name="worldcam" parent="." instance=ExtResource("3_twhvs")]
-zoom = Vector2(1, 1)
-
-[node name="melee" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-125, 95)
-
-[node name="melee3" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-173, 34)
-
-[node name="melee4" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-83, 152)
-
-[node name="melee5" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-205, 112)
-
-[node name="melee9" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-200, 81)
-
-[node name="melee10" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-248, 20)
-
-[node name="melee11" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-158, 138)
-
-[node name="melee12" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-280, 98)
-
-[node name="melee13" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-262, -82)
-
-[node name="melee14" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-310, -143)
-
-[node name="melee15" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-220, -25)
-
-[node name="melee16" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-342, -65)
-
-[node name="melee17" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-289, 62)
-
-[node name="melee18" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-337, 1)
-
-[node name="melee19" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-247, 119)
-
-[node name="melee20" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-369, 79)
-
-[node name="melee21" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-281, 177)
-
-[node name="melee22" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-329, 116)
-
-[node name="melee23" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-239, 234)
-
-[node name="melee49" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-333, -100)
-
-[node name="melee50" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-291, -43)
-
-[node name="melee51" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-413, -83)
-
-[node name="melee52" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-366, -57)
-
-[node name="melee53" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-455, -76)
-
-[node name="melee54" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-447, 39)
-
-[node name="melee55" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-309, -180)
-
-[node name="melee56" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-267, -123)
-
-[node name="melee57" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-389, -163)
-
-[node name="melee58" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-342, -137)
-
-[node name="melee59" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-431, -156)
-
-[node name="melee60" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-423, -41)
-
-[node name="melee61" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-103, -231)
-
-[node name="melee62" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-61, -174)
-
-[node name="melee63" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-183, -214)
-
-[node name="melee64" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-136, -188)
-
-[node name="melee65" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-225, -207)
-
-[node name="melee66" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-217, -92)
-
-[node name="melee67" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-90, -114)
-
-[node name="melee68" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-48, -57)
-
-[node name="melee69" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-170, -97)
-
-[node name="melee70" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-123, -71)
-
-[node name="melee71" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-212, -90)
-
-[node name="melee72" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-204, 25)
-
-[node name="melee24" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(-361, 194)
-
-[node name="melee2" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(179, -130)
-type = 2
-
-[node name="melee6" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(232, -87)
-type = 2
-
-[node name="melee7" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(117, -186)
-type = 2
-
-[node name="melee8" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(176, -76)
-type = 2
-
-[node name="melee25" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(283, -112)
-type = 2
-
-[node name="melee26" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(336, -69)
-type = 2
-
-[node name="melee27" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(221, -168)
-type = 2
-
-[node name="melee28" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(280, -58)
-type = 2
-
-[node name="melee29" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(163, -32)
-type = 2
-
-[node name="melee30" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(216, 11)
-type = 2
-
-[node name="melee31" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(101, -88)
-type = 2
-
-[node name="melee32" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(160, 22)
-type = 2
-
-[node name="melee33" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(278, 8)
-type = 2
-
-[node name="melee34" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(331, 51)
-type = 2
-
-[node name="melee35" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(216, -48)
-type = 2
-
-[node name="melee36" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(275, 62)
-type = 2
-
-[node name="melee37" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(278, 8)
-type = 2
-
-[node name="melee38" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(331, 51)
-type = 2
-
-[node name="melee39" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(216, -48)
-type = 2
-
-[node name="melee40" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(275, 62)
-type = 2
-
-[node name="melee41" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(160, 77)
-type = 2
-
-[node name="melee42" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(104, 88)
-type = 2
-
-[node name="melee43" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(222, 74)
-type = 2
-
-[node name="melee44" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(275, 117)
-type = 2
-
-[node name="melee45" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(219, 128)
-type = 2
-
-[node name="melee46" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(222, 74)
-type = 2
-
-[node name="melee47" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(275, 117)
-type = 2
-
-[node name="melee48" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(219, 128)
-type = 2
-
-[node name="melee73" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(251, 166)
-type = 2
-
-[node name="melee74" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(195, 177)
-type = 2
-
-[node name="melee75" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(251, 166)
-type = 2
-
-[node name="melee76" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(195, 177)
-type = 2
-
-[node name="melee77" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(80, 192)
-type = 2
-
-[node name="melee78" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(142, 189)
-type = 2
-
-[node name="melee79" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(195, 232)
-type = 2
-
-[node name="melee80" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(139, 243)
-type = 2
-
-[node name="melee81" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(142, 189)
-type = 2
-
-[node name="melee82" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(195, 232)
-type = 2
-
-[node name="melee83" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(139, 243)
-type = 2
-
-[node name="melee84" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(408, 161)
-type = 2
-
-[node name="melee85" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(352, 172)
-type = 2
-
-[node name="melee86" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(408, 161)
-type = 2
-
-[node name="melee87" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(352, 172)
-type = 2
-
-[node name="melee88" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(237, 187)
-type = 2
-
-[node name="melee89" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(299, 184)
-type = 2
-
-[node name="melee90" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(352, 227)
-type = 2
-
-[node name="melee91" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(296, 238)
-type = 2
-
-[node name="melee92" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(299, 184)
-type = 2
-
-[node name="melee93" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(352, 227)
-type = 2
-
-[node name="melee94" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(296, 238)
-type = 2
-
-[node name="melee95" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(434, -223)
-type = 2
-
-[node name="melee96" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(378, -212)
-type = 2
-
-[node name="melee97" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(434, -223)
-type = 2
-
-[node name="melee98" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(378, -212)
-type = 2
-
-[node name="melee99" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(263, -197)
-type = 2
-
-[node name="melee100" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(325, -200)
-type = 2
-
-[node name="melee101" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(378, -157)
-type = 2
-
-[node name="melee102" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(322, -146)
-type = 2
-
-[node name="melee103" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(325, -200)
-type = 2
-
-[node name="melee104" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(378, -157)
-type = 2
-
-[node name="melee105" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(322, -146)
-type = 2
-
-[node name="melee106" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(226, -239)
-type = 2
-
-[node name="melee107" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(170, -228)
-type = 2
-
-[node name="melee108" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(226, -239)
-type = 2
-
-[node name="melee109" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(170, -228)
-type = 2
-
-[node name="melee110" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(55, -213)
-type = 2
-
-[node name="melee111" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(117, -216)
-type = 2
-
-[node name="melee112" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(170, -173)
-type = 2
-
-[node name="melee113" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(114, -162)
-type = 2
-
-[node name="melee114" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(117, -216)
-type = 2
-
-[node name="melee115" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(170, -173)
-type = 2
-
-[node name="melee116" parent="." instance=ExtResource("3_i3va1")]
-position = Vector2(114, -162)
+[node name="chunks" type="Node" parent="."]
+script = ExtResource("2_54tqr")
+
+[node name="worldcam" parent="." instance=ExtResource("3_a57ed")]
+texture_filter = 1
+position = Vector2(270, 270)
+
+[node name="ui" parent="." instance=ExtResource("4_4mwh2")]
+
+[node name="grid" type="Node2D" parent="."]
+z_index = -3
+material = SubResource("CanvasItemMaterial_diyb1")
+script = ExtResource("5_jrx4l")
+
+[node name="grid" type="TextureRect" parent="grid"]
+modulate = Color(0.419608, 1, 1, 1)
+texture_filter = 1
+offset_right = 432.0
+offset_bottom = 432.0
+texture = ExtResource("6_h33mj")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="king" parent="." instance=ExtResource("9_6mo8q")]
+position = Vector2(720, 270)
 type = 2
